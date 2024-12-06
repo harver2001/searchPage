@@ -26,21 +26,30 @@ const SearchPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
 
-  const handleSearch = (e) => setSearchQuery(e.target.value.toLowerCase());
-  const handleFilterChange = (e) => {
-    setFilter(e.target.value);
-    setCurrentPage(1);
+  // Handle search input change
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
+    setCurrentPage(1); // Reset to page 1 when search query changes
   };
 
+  // Handle filter change
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+    setCurrentPage(1); // Reset to page 1 when filter changes
+  };
+
+  // Filter posts based on search query and selected filter
   const filteredPosts = blogPosts.filter((post) => {
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery);
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery); // Case-insensitive search
     const matchesFilter = filter === 'All' || post.category === filter;
     return matchesSearch && matchesFilter;
   });
 
+  // Pagination logic
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   const changePage = (pageNumber) => {
