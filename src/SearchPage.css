@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #edf2f7, #c3dafe);
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  .search-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .search-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .search-header h1 {
+    font-size: 36px;
+    color: #2d3748;
+  }
+  
+  .search-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .search-box, .filter-dropdown {
+    flex: 1;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+  }
+  
+  .search-box:focus, .filter-dropdown:focus {
+    border: 1px solid #3182ce;
+    outline: none;
+  }
+  
+  .results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .result-card {
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .result-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .result-card h2 {
+    color: #2b6cb0;
+  }
+  
+  .no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #718096;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .page-btn, .arrow-btn {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    background: #edf2f7;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .page-btn.active {
+    background: #3182ce;
+    color: #fff;
+  }
+  
+  .page-btn:hover, .arrow-btn:hover:not([disabled]) {
+    background: #4299e1;
+    color: #fff;
+  }
+  
+  .arrow-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  @media (max-width: 600px) {
+    .search-controls {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
